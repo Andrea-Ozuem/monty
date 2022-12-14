@@ -69,7 +69,7 @@ void f_pall(stack_t **stack, unsigned int number)
 /**
   *f_pint - prints topmost stack
   *@stack: stack
-  *line_number: line num
+  *@line_number: line num
   */
 void f_pint(stack_t **stack, unsigned int line_number)
 {
