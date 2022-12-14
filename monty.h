@@ -45,6 +45,7 @@ void f_pint(stack_t **head, unsigned int number);
 void f_pop(stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
 void f_add(stack_t **head, unsigned int counter);
-char **readline(FILE *fp);
+void readline(FILE *fp);
+void monty(char *line, int line_no);
 
 #endif
