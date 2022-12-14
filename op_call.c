@@ -5,19 +5,19 @@ int get_op(stack_t **stack, unsigned int line_number, char *line, FILE *fp)
 	instruction_t ops[] = {
 		{"push", f_push},
 		{"pall", f_pall},
-		/*{"pint", f_pint},
+		/*{"pint", f_pint},*/
 		{"pop", f_pop},
 		{"swap", f_swap},
-		{"add", f_add},*/
+		{"add", f_add},
 		{NULL, NULL}
 	};
 	char *op;
 	int i = 0;
 
-	op =strtok(line, " \t\n\r");
+	op = strtok(line, " \t\n\r");
 	if (op && op[0] == '#')
 		return (0);
-	
+
 	globals.arg = strtok(NULL, " \t\n\r");
 	while (ops[i].opcode && op)
 	{
