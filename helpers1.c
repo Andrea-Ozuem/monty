@@ -27,15 +27,15 @@ stack_t *new_Node(int n)
  * @stack: is a parameter
  * @line_number: is value
  */
-void f_push(stack_t **stack, unsigned int line_number)
+void f_push(stack_t **stack, unsigned int number)
 {
 	int p_int;
 	stack_t *new = NULL;
 
-	is_valid(value, stack, line_number);
-	p_int = atoi(bus.arg);
+	is_valid(globals.arg, stack, number);
+	p_int = atoi(globals.arg);
 
-	(void)line_number;
+	(void) number;
 
 	new = new_Node(p_int);
 	new->next = *stack;
@@ -53,7 +53,7 @@ void f_push(stack_t **stack, unsigned int line_number)
 void f_pall(stack_t **head, unsigned int number)
 {
 	stack_t *h;
-	(void)counter;
+	(void) number;
 
 	h = *head;
 	if (h == NULL)

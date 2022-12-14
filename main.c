@@ -1,5 +1,5 @@
 #include "monty.h"
-glob_t global = {NULL, NULL, NULL, 0};
+glob_t globals = {NULL, NULL, NULL};
 
 /**
   *main - monty code
@@ -22,7 +22,7 @@ int main(int ac, char **av)
 	}
 
 	fp = fopen(av[1], "r");
-	global.fp = fp;
+	globals.fp = fp;
 
 	if (fp == NULL)
 	{
@@ -32,7 +32,7 @@ int main(int ac, char **av)
 	/* readline from file*/
 	while (getline(&line, &n, fp) != -1)
 	{
-		global.line = line;
+		globals.line = line;
 		get_op(&stack, line_number, line, fp);
 		line_number++;
 	}
