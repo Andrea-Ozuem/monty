@@ -1,4 +1,5 @@
 #include "monty.h"
+
 glob_t globals = {NULL, NULL, NULL};
 
 /**
@@ -33,7 +34,7 @@ int main(int ac, char **av)
 	while (getline(&line, &n, fp) != -1)
 	{
 		globals.line = line;
-		get_op(&stack, line_number, line, fp);
+		get_op(&stack, line_number, line);
 		line_number++;
 	}
 	fclose(fp);

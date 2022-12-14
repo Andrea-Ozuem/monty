@@ -1,14 +1,29 @@
 #include "monty.h"
 
-int get_op(stack_t **stack, unsigned int line_number, char *line, FILE *fp)
+/**
+  *get_op - chooses which function to call per opcode
+  *@stack: stack
+  *@line_number: current line
+  *@line: line current
+  *Return: 0 as success
+  */
+int get_op(stack_t **stack, unsigned int line_number, char *line)
 {
 	instruction_t ops[] = {
 		{"push", f_push},
 		{"pall", f_pall},
+<<<<<<< HEAD
 		/*{"pint", f_pint},*/
 		{"pop", f_pop},
 		{"swap", f_swap},
 		{"add", f_add},
+=======
+		{"pint", f_pint},
+	/**	{"pop", f_pop},
+	*	{"swap", f_swap},
+	*	{"add", f_add},
+		 */
+>>>>>>> a28b5da5bf2d4eea2fedba724246d12630c9eab7
 		{NULL, NULL}
 	};
 	char *op;
@@ -21,24 +36,17 @@ int get_op(stack_t **stack, unsigned int line_number, char *line, FILE *fp)
 	globals.arg = strtok(NULL, " \t\n\r");
 	while (ops[i].opcode && op)
 	{
-		printf("%s\n", op);
 		if (strcmp(op, ops[i].opcode) == 0)
 		{
-			printf("called\n");
 			ops[i].f(stack, line_number);
 			return (0);
 		}
 		i++;
 	}
-	if (op == NULL && ops[i].opcode == NULL)
+	if (op && ops[i].opcode == NULL)
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", line_number, op);
-		free(op);
-		free(globals.arg);
-		free(line);
-		fclose(fp);
-		/*free stack*/
-		exit(EXIT_FAILURE);
+		handle_error(stack);
 	}
 	return (1);
 }
