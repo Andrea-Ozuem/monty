@@ -55,14 +55,17 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void f_push(stack_t **head, unsigned int number);
-void f_pall(stack_t **head, unsigned int number);
-void f_pint(stack_t **head, unsigned int number);
-void f_pop(stack_t **head, unsigned int counter);
-void f_swap(stack_t **head, unsigned int counter);
-void f_add(stack_t **head, unsigned int counter);
+void f_push(stack_t **head, unsigned int line_number);
+void f_pall(stack_t **head, unsigned int line_number);
+void f_pint(stack_t **head, unsigned int line_number);
+void f_pop(stack_t **head, unsigned int line_number);
+void f_swap(stack_t **head, unsigned int line_number);
+void f_add(stack_t **head, unsigned int line_number);
 
 stack_t *new_Node(int n);
-int get_op(stack_t **stack, unsigned int line_number, char *line, FILE *fp);
+int get_op(stack_t **stack, unsigned int line_number, char *line);
 void is_valid(char *arg, stack_t **stack, unsigned int line_number);
+void handle_error(stack_t **stack);
+void free_stack(stack_t *head);
+
 #endif
