@@ -9,6 +9,22 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
+
+/**
+  *glob_s - structure to hold global variables
+  *@fp: file descriptor of file
+  *@line: a line from file
+  *
+  *Description - holds value needed across multiple files
+  */
+typedef struct glob_s
+{
+	char *arg;
+	FILE *fp;
+	char *line;
+} glob_t;
+extern glob_t globals;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -45,7 +61,8 @@ void f_pint(stack_t **head, unsigned int number);
 void f_pop(stack_t **head, unsigned int counter);
 void f_swap(stack_t **head, unsigned int counter);
 void f_add(stack_t **head, unsigned int counter);
-void readline(FILE *fp);
-void monty(char *line, int line_no);
 
+stack_t *new_Node(int n);
+int get_op(stack_t **stack, unsigned int line_number, char *line, FILE *fp);
+void is_valid(char *arg, stack_t **stack, unsigned int line_number);
 #endif
