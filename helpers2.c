@@ -11,7 +11,7 @@ void f_pop(stack_t **head, unsigned int number)
 
 	h = *head;
 
-	if (*h == NULL)
+	if (h == NULL)
 	{
 	fprintf(stderr, "L%d: can't pop an empty stack\n", number);
 	exit(EXIT_FAILURE);
