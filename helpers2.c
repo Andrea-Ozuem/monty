@@ -77,3 +77,16 @@ void f_add(stack_t **head, unsigned int number)
 	*head = h->next;
 	free(h);
 }
+
+/**
+ * f_nop - function that does nothing
+ * @head: double head pointer to the stack
+ * @number: line count
+ *
+ * Return: nothing
+ */
+void f_nop(stack_t **head, unsigned int number)
+{
+  (void) number;
+  (void) head;
+}
