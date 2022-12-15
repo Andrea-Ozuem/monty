@@ -1,15 +1,15 @@
 #include "monty.h"
 /**
  * f_pop - prints the top
- * @head: stack head
+ * @stack: stack head
  * @number: line_number
  * Return: no return
  */
-void f_pop(stack_t **head, unsigned int number)
+void f_pop(stack_t **stack, unsigned int number)
 {
 	stack_t *h;
 
-	h = *head;
+	h = *stack;
 
 	if (h == NULL)
 	{
@@ -17,22 +17,22 @@ void f_pop(stack_t **head, unsigned int number)
 	free_stack(*stack);
 	exit(EXIT_FAILURE);
 	}
-	*head = h->next;
+	*stack = h->next;
 	free(h);
 }
 
 /**
  * f_swap - swaps the top two elements of the stack.
- * @head: stack head
+ * @stack: stack head
  * @number: line_number
  * Return: no return
  */
-void f_swap(stack_t **head, unsigned int number)
+void f_swap(stack_t **stack, unsigned int number)
 {
 	stack_t *h;
 	int len = 0, temp;
 
-	h = *head;
+	h = *stack;
 	while (h)
 	{
 	h = h->next;
@@ -44,7 +44,7 @@ void f_swap(stack_t **head, unsigned int number)
 	free_stack(*stack);
 	exit(EXIT_FAILURE);
 	}
-	h = *head;
+	h = *stack;
 	temp = h->n;
 	h->n = h->next->n;
 	h->next->n = temp;
@@ -53,16 +53,16 @@ void f_swap(stack_t **head, unsigned int number)
 
 /**
  * f_add - adds the top two elements of the stack.
- * @head: stack head
+ * @stack: stack head
  * @number: line_number
  * Return: no return
  */
-void f_add(stack_t **head, unsigned int number)
+void f_add(stack_t **stack, unsigned int number)
 {
 	stack_t *h;
 	int len = 0, temp;
 
-	h = *head;
+	h = *stack;
 	while (h)
 	{
 	h = h->next;
@@ -74,39 +74,39 @@ void f_add(stack_t **head, unsigned int number)
 	free_stack(*stack);
 	exit(EXIT_FAILURE);
 	}
-	h = *head;
+	h = *stack;
 	temp = h->n + h->next->n;
 	h->next->n = temp;
-	*head = h->next;
+	*stack = h->next;
 	free(h);
 }
 
 /**
  * f_nop - function that does nothing
- * @head: double head pointer to the stack
+ * @stack: double head pointer to the stack
  * @number: line count
  *
  * Return: nothing
  */
-void f_nop(stack_t **head, unsigned int number)
+void f_nop(stack_t **stack, unsigned int number)
 {
 	(void) number;
-	(void) head;
+	(void) stack;
 }
 
 
 /**
  * f_sub - subtracts the top two elements of the stack.
- * @head: stack head
+ * @stack: stack head
  * @number: line_number
  * Return: no return
  */
-void f_sub(stack_t **head, unsigned int number)
+void f_sub(stack_t **stack, unsigned int number)
 {
 	stack_t *h;
 	int len = 0, temp;
 
-	h = *head;
+	h = *stack;
 	while (h)
 	{
 	h = h->next;
@@ -114,13 +114,13 @@ void f_sub(stack_t **head, unsigned int number)
 	}
 	if (len < 2)
 	{
-	fprintf(stderr, "L<line_number>: can't sub, stack too short", number);
+	fprintf(stderr, "L%d: can't sub, stack too short\n", number);
 	free_stack(*stack);
 	exit(EXIT_FAILURE);
 	}
-	h = *head;
+	h = *stack;
 	temp = h->next->n - h->n;
 	h->next->n = temp;
-	*head = h->next;
+	*stack = h->next;
 	free(h);
 }
