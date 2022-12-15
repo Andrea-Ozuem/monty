@@ -1,43 +1,28 @@
 #include "monty.h"
 
 /**
- * new_Node - creates new node
- * @n: is a value
- * Return: new node
- */
-stack_t *new_Node(int n)
-{
-	stack_t *new = NULL;
-
-	new = malloc(sizeof(stack_t));
-	if (new == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-	new->n = n;
-	new->next = NULL;
-	new->prev = NULL;
-
-	return (new);
-}
-
-/**
  * f_push - push item
  * @stack: is a parameter
  * @number: is value
  */
 void f_push(stack_t **stack, unsigned int number)
 {
-	int p_int;
 	stack_t *new = NULL;
+	int p_int;
+
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
 
 	is_valid(globals.arg, stack, number);
 	p_int = atoi(globals.arg);
 
 	(void) number;
-
-	new = new_Node(p_int);
+	new->n = p_int;
 	new->next = *stack;
 	if (*stack != NULL)
 		(*stack)->prev = new;

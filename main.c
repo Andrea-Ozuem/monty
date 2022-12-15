@@ -11,8 +11,8 @@ glob_t globals = {NULL, NULL, NULL};
 int main(int ac, char **av)
 {
 	FILE *fp;
-	stack_t *stack;
-	char *line;
+	stack_t *stack = NULL;
+	char *line = NULL;
 	size_t n = 0;
 	unsigned int line_number = 1;
 
@@ -37,7 +37,8 @@ int main(int ac, char **av)
 		get_op(&stack, line_number, line);
 		line_number++;
 	}
+	free(line);
 	fclose(fp);
-/*free stack*/
+	free_stack(stack);
 	return (0);
 }

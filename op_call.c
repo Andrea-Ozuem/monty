@@ -35,7 +35,7 @@ int get_op(stack_t **stack, unsigned int line_number, char *line)
 		}
 		i++;
 	}
-	if (op && ops[i].opcode == NULL)
+	if ((op && ops[i].opcode == NULL) || (!ops[i].opcode))
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", line_number, op);
 		handle_error(stack);
