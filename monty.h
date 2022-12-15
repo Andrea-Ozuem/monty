@@ -61,6 +61,8 @@ void f_pint(stack_t **head, unsigned int line_number);
 void f_pop(stack_t **head, unsigned int line_number);
 void f_swap(stack_t **head, unsigned int line_number);
 void f_add(stack_t **head, unsigned int line_number);
+void f_nop(stack_t **head, unsigned int line_number);
+void f_sub(stack_t **head, unsigned int line_number);
 
 stack_t *new_Node(int n);
 int get_op(stack_t **stack, unsigned int line_number, char *line);
