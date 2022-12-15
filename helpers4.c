@@ -82,6 +82,7 @@ void f_mod(stack_t **stack, unsigned int number)
 	free_stack(*stack);
 	exit(EXIT_FAILURE);
 	}
+	h = *stack;
 	if (h->n == 0)
 	{
 	fprintf(stderr, "L%d: division by zero\n", number);
