@@ -14,7 +14,7 @@ void f_pop(stack_t **head, unsigned int number)
 	if (h == NULL)
 	{
 	fprintf(stderr, "L%d: can't pop an empty stack\n", number);
-	free_stack(*head);
+	free_stack(*stack);
 	exit(EXIT_FAILURE);
 	}
 	*head = h->next;
@@ -41,7 +41,7 @@ void f_swap(stack_t **head, unsigned int number)
 	if (len < 2)
 	{
 	fprintf(stderr, "L%d: can't swap, stack too short\n", number);
-	free_stack(*head);
+	free_stack(*stack);
 	exit(EXIT_FAILURE);
 	}
 	h = *head;
@@ -71,7 +71,7 @@ void f_add(stack_t **head, unsigned int number)
 	if (len < 2)
 	{
 	fprintf(stderr, "L%d: can't add, stack too short\n", number);
-	free_stack(*head);
+	free_stack(*stack);
 	exit(EXIT_FAILURE);
 	}
 	h = *head;
@@ -115,7 +115,7 @@ void f_sub(stack_t **head, unsigned int number)
 	if (len < 2)
 	{
 	fprintf(stderr, "L<line_number>: can't sub, stack too short", number);
-	free_stack(*head);
+	free_stack(*stack);
 	exit(EXIT_FAILURE);
 	}
 	h = *head;
