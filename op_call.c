@@ -18,6 +18,9 @@ int get_op(stack_t **stack, unsigned int line_number, char *line)
 		{"add", f_add},
 		{"nop", f_nop},
 		{"sub", f_sub},
+		{"mul", f_mul},
+		{"div", f_div},
+		{"mod", f_mod},
 		{NULL, NULL}
 	};
 	char *op;
