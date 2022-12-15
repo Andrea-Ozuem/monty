@@ -12,19 +12,12 @@ int get_op(stack_t **stack, unsigned int line_number, char *line)
 	instruction_t ops[] = {
 		{"push", f_push},
 		{"pall", f_pall},
-<<<<<<< HEAD
-		/*{"pint", f_pint},*/
+		{"pint", f_pint},
 		{"pop", f_pop},
 		{"swap", f_swap},
 		{"add", f_add},
-=======
+
 		{"pint", f_pint},
-	/**
-*	  {"pop", f_pop},
-	*	{"swap", f_swap},
-	*	{"add", f_add},
-		 */
->>>>>>> a28b5da5bf2d4eea2fedba724246d12630c9eab7
 		{NULL, NULL}
 	};
 	char *op;
