@@ -13,10 +13,10 @@ int get_op(stack_t **stack, unsigned int line_number, char *line)
 		{"push", f_push},
 		{"pall", f_pall},
 		{"pint", f_pint},
-		/*	{"pop", f_pop},
+		{"pop", f_pop},
 		{"swap", f_swap},
 		{"add", f_add},
-		{"nop", f_nop},
+		/*{"nop", f_nop},
 		{"sub", f_sub},*/
 		{NULL, NULL}
 	};
